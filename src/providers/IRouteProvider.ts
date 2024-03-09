@@ -1,6 +1,6 @@
 import { IRouteDTO, Point } from "../useCases/ClientRoute/IRouteDTO";
 
-export interface IClientDataProvider
+export interface IRouteProvider
 {
     calcDistance(A: Point, B: Point): number;
     bestRouteCalc(company: Point, clients: IRouteDTO[]): Point[];

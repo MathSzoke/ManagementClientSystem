@@ -1,7 +1,7 @@
 import { IRouteDTO, Point } from "../../useCases/ClientRoute/IRouteDTO";
-import { IClientDataProvider } from "../IClientDataProvider";
+import { IRouteProvider } from "../IRouteProvider";
 
-export class ClientMapProvider implements IClientDataProvider
+export class RouteProvider implements IRouteProvider
 {
     calcDistance(A: Point, B: Point): number
     {
