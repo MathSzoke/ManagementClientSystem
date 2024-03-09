@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { clientController } from "./useCases/CreateClient";
+import { routeController } from "./useCases/ClientRoute";
 
 const router = Router()
 

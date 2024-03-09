@@ -22,28 +22,32 @@ export class RouteController
         }
     }
 
-    async getRouteByClientID(clientId: string)
+    async getRouteByClientID(request: Request, response: Response): Promise<Response>
     {
-        return await this.RouteUseCase.getRouteByClientID(clientId);
+        const { clientId } = request.params;
+        return response.status(200).json(await this.RouteUseCase.getRouteByClientID(clientId));
     }
 
-    async getRouteByName(name: string)
+    async getRouteByName(request: Request, response: Response): Promise<Response>
     {
-        return await this.RouteUseCase.getRouteByName(name);
+        const { name } = request.params;
+        return response.status(200).json(await this.RouteUseCase.getRouteByName(name));
     }
 
-    async getRouteByEmail(email: string)
+    async getRouteByEmail(request: Request, response: Response): Promise<Response>
     {
-        return await this.RouteUseCase.getRouteByEmail(email);
+        const { email } = request.params;
+        return response.status(200).json(await this.RouteUseCase.getRouteByEmail(email));
     }
 
-    async getRouteByPhone(phone: string)
+    async getRouteByPhone(request: Request, response: Response): Promise<Response>
     {
-        return await this.RouteUseCase.getRouteByPhone(phone);
+        const { phone } = request.params;
+        return response.status(200).json(await this.RouteUseCase.getRouteByPhone(phone));
     }
 
-    async getAllRoutesClients()
+    async getAllRoutesClients(response: Response): Promise<Response>
     {
-        return await this.RouteUseCase.getAllRoutesClients();
+        return response.status(200).json(await this.RouteUseCase.getAllRoutesClients());
     }
 }
