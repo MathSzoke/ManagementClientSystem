@@ -1,25 +1,27 @@
-import { IRouteDTO, Point } from "../../useCases/ClientRoute/IRouteDTO";
+import { Client, Coordinates } from "../../entities/Client";
 import { IRouteProvider } from "../IRouteProvider";
 
 export class RouteProvider implements IRouteProvider
 {
-    calcDistance(A: Point, B: Point): number
+    calcDistance(A: Coordinates, B: Coordinates): number
     {
         // Calculate the distance between to points.
-        return Math.sqrt(Math.pow(Math.abs(B.x - A.x), 2) + Math.pow(Math.abs(B.y - A.y), 2));
+        return Math.sqrt(Math.pow(Math.abs(B.coordinateX - A.coordinateX), 2) + Math.pow(Math.abs(B.coordinateY - A.coordinateY), 2));
     }
         
-    bestRouteCalc(company: Point, clients: IRouteDTO[]): Point[]
+    bestRouteCalc(clients: Client[]): Coordinates[]
     {
-        const clientPoints: Point[] = clients.map(client => client.Coordinates);
+        const company: Coordinates = { coordinateX: 0, coordinateY: 0 };
+
+        const clientPoints: Coordinates[] = clients.map(client => client.coordinates);
     
-        const route: Point[] = [];
-        let currentPoint: Point = company;
+        const route: Coordinates[] = [];
+        let currentPoint: Coordinates = company;
     
         while (clientPoints.length > 0)
         {
             let shortestDistance = Infinity;
-            let closestPoint: Point | undefined = undefined;
+            let closestPoint: Coordinates | undefined = undefined;
             let closestPointIndex: number | undefined = undefined;
     
             for (let i = 0; i < clientPoints.length; i++)
@@ -44,15 +46,3 @@ export class RouteProvider implements IRouteProvider
         return route;
     }
 }
-
-// Exemplo de utilização
-// const company: Point = { x: 0, y: 0 };
-// const clients: IRouteDTO[] = [
-//     { ClientID: uuid(), Coordinates: { x: 10, y: 20 } },
-//     { ClientID: uuid(), Coordinates: { x: 5, y: 15 } },
-//     { ClientID: uuid(), Coordinates: { x: 3, y: 7 } },
-//     { ClientID: uuid(), Coordinates: { x: 8, y: 2 } },
-// ];
-
-// const bestRoute = bestRouteCalc(company, clients);
-// console.log('Melhor rota:', bestRoute);

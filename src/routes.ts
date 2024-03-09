@@ -20,4 +20,8 @@ router.get('/GetClientByPhone', (request, response) => {
     return clientController.getClientByPhone(request, response);
 })
 
+router.get('/GetBestRoute', (request, response) => {
+    return routeController.getBestRoute(request, response);
+})
+
 export { router }

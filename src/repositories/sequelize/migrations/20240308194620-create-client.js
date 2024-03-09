@@ -16,6 +16,12 @@ module.exports = {
       },
       phone: {
         type: Sequelize.STRING
+      },
+      coordinateX:{
+        type: Sequelize.NUMBER
+      },
+      coordinateY:{
+        type: Sequelize.NUMBER
       }
     });
   },

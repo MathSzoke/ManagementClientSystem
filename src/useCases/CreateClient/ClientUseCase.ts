@@ -18,6 +18,16 @@ export class ClientUseCase
         await this.Client.addClient(c);
     }
 
+    async getAllClients()
+    {
+        return await this.Client.getAllClients();
+    }
+
+    async getClientByID(id: string)
+    {
+        return await this.Client.getClientByID(id);
+    }
+
     async getClientByName(name: string)
     {
         return await this.Client.getClientByName(name);

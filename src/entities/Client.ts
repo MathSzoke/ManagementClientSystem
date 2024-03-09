@@ -8,6 +8,7 @@ export class Client
     public name: string;
     public email: string;
     public phone: string;
+    public coordinates: Coordinates;
 
     // Props all properties from Client and omit only ID. ID is nullable for methods like getClientByID
     constructor(props: Omit<Client, 'ID'>, ID?: string)
@@ -17,4 +18,10 @@ export class Client
         if(!ID) 
             this.ID = uuid();
     }
+}
+
+export class Coordinates
+{
+    public coordinateX: number;
+    public coordinateY: number;
 }

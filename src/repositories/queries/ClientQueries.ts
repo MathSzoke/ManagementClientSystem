@@ -8,6 +8,39 @@ require('dotenv').config();
 
 export class ClientQueries implements IClientQueries
 {
+  async getAllClients(): Promise<Client[]>
+  {
+    try
+    {
+      const query = `SELECT * FROM public."Clients"`
+
+      const clients = await sequelize.query<Client>(query, {
+        type: QueryTypes.SELECT
+      });
+      return clients;
+    }
+    catch (error)
+    {
+      throw error;
+    }
+  }
+
+  async getClientByID(id: string): Promise<Client[]>
+  {
+    try
+    {
+      const clients = await sequelize.query<Client>(this.select("id", id), {
+        replacements: { id },
+        type: QueryTypes.SELECT
+      });
+      return clients;
+    }
+    catch (error)
+    {
+      throw error;
+    }
+  }
+
   async getClientByName(name: string): Promise<Client[]>
   {
     try
@@ -58,13 +91,13 @@ export class ClientQueries implements IClientQueries
   {
     try
     {
-      const query = `INSERT INTO public."Clients" ("id", "name", "email", "phone") VALUES (:id, :name, :email, :phone)`;
+      const query = `INSERT INTO public."Clients" ("id", "name", "email", "phone", "coordinates") VALUES (:id, :name, :email, :phone, :coordinates)`;
   
-      const { ID, name, email, phone } = client;
+      const { ID, name, email, phone, coordinates } = client;
   
       await sequelize.query(query,
       {
-        replacements: { id: ID, name, email, phone },
+        replacements: { id: ID, name, email, phone, coordinates },
         type: QueryTypes.INSERT
       });
     }

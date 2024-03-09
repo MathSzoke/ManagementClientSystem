@@ -7,12 +7,12 @@ export class ClientController
 
     async handle(request: Request, response: Response): Promise<Response>
     {
-        const { name, email, phone } = request.body;
+        const { name, email, phone, coordinates } = request.body;
 
         try
         {
             await this.ClientUseCase.execute({
-                name, email, phone
+                name, email, phone, coordinates
             })
 
             return response.status(200).send();
@@ -23,6 +23,17 @@ export class ClientController
                 message: err.message || 'Unexpected error.'
             })
         }
+    }
+
+    async getAllClients(response: Response): Promise<Response>
+    {
+        return response.status(200).json(await this.ClientUseCase.getAllClients());
+    }
+
+    async getClientByID(request: Request, response: Response): Promise<Response>
+    {
+        const { id } = request.body;
+        return response.status(200).json(await this.ClientUseCase.getClientByID(id));
     }
 
     async getClientByName(request: Request, response: Response): Promise<Response>

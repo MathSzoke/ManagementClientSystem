@@ -1,45 +1,32 @@
-import { RouteClient } from "../../entities/RouteClient";
-import { IRouteClientQueries } from "../../repositories/IRouteClientQueries";
-import { IRouteDTO } from "./IRouteDTO";
+import { Client } from "../../entities/Client";
+import { IRouteProvider } from "../../providers/IRouteProvider";
+import { IClientQueries } from "../../repositories/IClientQueries";
 
 export class RouteUseCase
 {
-    constructor(private Routes: IRouteClientQueries) { }
+    constructor(private Client: IClientQueries, private RoutesProvider: IRouteProvider) { }
 
-    async execute(data: IRouteDTO)
+    async getBestRoute(clientIds: string[] | null)
     {
-        const routeAlreadyExists = await this.Routes.getRouteByClientID(data.ClientID);
-
-        if(routeAlreadyExists) 
-            throw new Error('Route already exists for this client');
-
-        const rc = new RouteClient(data);
-
-        await this.Routes.addRoute(rc);
-    }
-
-    async getRouteByClientID(clientId: string)
-    {
-        return await this.Routes.getRouteByClientID(clientId);
-    }
-
-    async getRouteByName(name: string)
-    {
-        return await this.Routes.getRouteByName(name);
-    }
-
-    async getRouteByEmail(email: string)
-    {
-        return await this.Routes.getRouteByEmail(email);
-    }
-
-    async getRouteByPhone(phone: string)
-    {
-        return await this.Routes.getRouteByPhone(phone);
-    }
-
-    async getAllRoutesClients()
-    {
-        return await this.Routes.getAllRoutesClients();
+        let entities: Client[] | null = null;
+    
+        if (clientIds != null)
+        {
+            entities = [];
+            for (const clientId of clientIds)
+            {
+                const entity = await this.Client.getClientByID(clientId);
+                if (entity)
+                {
+                    entities = entities.concat(entity);
+                }
+            }
+        }
+        else
+        {
+            entities = await this.Client.getAllClients();
+        }
+    
+        return this.RoutesProvider.bestRouteCalc(entities);
     }
 }
