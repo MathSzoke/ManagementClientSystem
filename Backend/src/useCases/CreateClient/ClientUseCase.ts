@@ -10,6 +10,8 @@ export class ClientUseCase
     {
         const clientAlreadyExists = await this.Client.getClientByEmail(data.email);
 
+        console.log("data: "+ JSON.stringify(data));
+
         if(clientAlreadyExists) 
             throw new Error('Client already exists');
 

@@ -1,4 +1,5 @@
-import { Client, Coordinates } from "../entities/Client";
+import { Client } from "../entities/Client";
+import { Coordinates } from "./implementations/RouteProvider";
 
 export interface IRouteProvider
 {

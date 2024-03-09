@@ -10,7 +10,7 @@ export class RouteUseCase
     {
         let entities: Client[] | null = null;
     
-        if (clientIds != null)
+        if (clientIds != null && clientIds.length > 0)
         {
             entities = [];
             for (const clientId of clientIds)

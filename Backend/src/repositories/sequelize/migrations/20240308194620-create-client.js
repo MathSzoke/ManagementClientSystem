@@ -18,10 +18,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       coordinateX:{
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       coordinateY:{
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       }
     });
   },

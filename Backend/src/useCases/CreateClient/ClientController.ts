@@ -7,12 +7,12 @@ export class ClientController
 
     async handle(request: Request, response: Response): Promise<Response>
     {
-        const { name, email, phone, coordinates } = request.body;
+        const { name, email, phone, coordinateX, coordinateY } = request.body;
 
         try
         {
             await this.ClientUseCase.execute({
-                name, email, phone, coordinates
+                name, email, phone, coordinateX, coordinateY
             })
 
             return response.status(200).send();

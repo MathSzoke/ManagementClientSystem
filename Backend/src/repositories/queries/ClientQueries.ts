@@ -59,7 +59,6 @@ export class ClientQueries implements IClientQueries
 
   async getClientByEmail(email: string)
   {
-
     const clients = await sequelize.query<Client>(this.select("email", email),
       {
         replacements: { email },
@@ -91,13 +90,16 @@ export class ClientQueries implements IClientQueries
   {
     try
     {
-      const query = `INSERT INTO public."Clients" ("id", "name", "email", "phone", "coordinates") VALUES (:id, :name, :email, :phone, :coordinates)`;
-  
-      const { ID, name, email, phone, coordinates } = client;
-  
+      const query = `
+          INSERT INTO public."Clients" ("id", "name", "email", "phone", "coordinateX", "coordinateY") VALUES ($1, $2, $3, $4, $5, $6)
+      `;
+
+      const values = [client.ID, client.name, client.email, client.phone, client.coordinateX, client.coordinateY];
+
+      console.log("values: " + values);
       await sequelize.query(query,
       {
-        replacements: { id: ID, name, email, phone, coordinates },
+        bind: values,
         type: QueryTypes.INSERT
       });
     }
@@ -107,5 +109,5 @@ export class ClientQueries implements IClientQueries
     }
   }
 
-  select = (column: string, value: string) => `SELECT * FROM public."Clients" WHERE "${column}" = :${value})`;
+  select = (column: string, value: string) => `SELECT * FROM public."Clients" WHERE "${column}" = '${value}'`;
 }
