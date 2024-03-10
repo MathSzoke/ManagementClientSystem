@@ -22,6 +22,10 @@ Implemente um botão na tela de clientes que, ao ser clicado, abre uma modal e m
 
 Ao desenvolver essa segunda parte, altere a rota de cadastro e visualização para que seja possível cadastrar e visualizar as coordenadas X e Y dos clientes da empresa.
 
+### Para clonar o repositório, utilize este comando:
+        git clone https://github.com/MathSzoke/ManagementClientSystem.git
+---
+
 ## Pacotes Instalados para o Sistema de Gerenciamento de Clientes
 
 Para instalar todos os pacotes necessários, utilize o seguinte comando:
