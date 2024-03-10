@@ -1,20 +1,20 @@
 .clients
 {
-    position: absolute;
     width: 50%;
     height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
 }
 
 .cardClient
 {
-    width: 40%;
-    height: 10%;
     border: none;
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 5%;
     padding: 5px;
     user-select: none;
+    transition: all 0.2s;
 }
 
 .cardClient:hover
@@ -47,4 +47,27 @@ p.clientName
     border-radius: 50%;
     display: inline-block;
     margin-right: 5px;
+}
+
+.contentsClients
+{
+  display: flex;
+}
+.left
+{
+    margin-right: auto;
+}
+.right
+{
+    margin-left: auto;
+}
+
+.filterFields
+{
+    display: flex;
+}
+.filterField
+{
+    width: 50%;
+    margin: 0 20px;
 }

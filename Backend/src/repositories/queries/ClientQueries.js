@@ -89,5 +89,5 @@ export class ClientQueries
   }
 
   select = (column, value) =>
-    `SELECT * FROM public."Clients" WHERE "${column}" LIKE '${value}'`
+    `SELECT * FROM public."Clients" WHERE "${column}" LIKE '%${value}%'`
 }

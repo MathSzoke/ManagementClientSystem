@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { GiBroom } from 'react-icons/gi';
 import './NavBar.css';
 
-export function NavBar() {
+export function NavBar()
+{
+    const [activeNav, setActiveNav] = useState('#About');
+    
     useEffect(() => {
         const handleNavClick = (event) => {
             event.preventDefault(); // Evita a navegação padrão do link
@@ -43,16 +46,14 @@ export function NavBar() {
         };
     }, []);
 
-    const [activeNav, setActiveNav] = useState('#');
-
     return (
         <nav className="navbar" id="aside">
             <div style={{ padding: "2em 0 5em", transform: "scaleX(-1)" }}>
                 <GiBroom size="6em" color='white' />
             </div>
-            <li className='navbar-button'><a href="#About" className={activeNav === '#About' ? 'active' : ''} title="About">Sobre</a></li>
-            <li className='navbar-button'><a href="#Register" className={activeNav === '#Register' ? 'active' : ''} title="Register Client">Registrar</a></li>
-            <li className='navbar-button'><a href="#Route" className={activeNav === '#Route' ? 'active' : ''} title="Route Client">Mapear Clientes</a></li>
+            <li className='navbar-button'><a href="#About" className={activeNav === '#About' ? 'activeLink' : ''} title="About">Sobre</a></li>
+            <li className='navbar-button'><a href="#Register" className={activeNav === '#Register' ? 'activeLink' : ''} title="Register Client">Registrar</a></li>
+            <li className='navbar-button'><a href="#Route" className={activeNav === '#Route' ? 'activeLink' : ''} title="Route Client">Mapear Clientes</a></li>
         </nav>
     );
 }

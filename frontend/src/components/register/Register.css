@@ -1,0 +1,22 @@
+.inputDiv
+{
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+}
+
+.buttonSubmit
+{
+    background: #00c8ab;
+    border: none;
+    padding: 2em;
+    width: 15%;
+    border-radius: 10px;
+    color: white;
+}
+
+.buttonSubmit:hover
+{
+    transform: scale(1.1);
+    cursor: pointer;
+}

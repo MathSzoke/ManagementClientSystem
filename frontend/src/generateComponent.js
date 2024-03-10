@@ -31,8 +31,9 @@ export function ${componentName}()
 {
     return (
         <section className="${componentName.toLowerCase()} section" id="${componentName}">
+          <h1>${componentName}</h1>
           <div className="container">
-            ${componentName} Component
+            
           </div>
         </section>
     );
