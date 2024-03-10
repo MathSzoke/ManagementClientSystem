@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import Register from './register/Register';
+import {Register} from './Register/Register';
+import {RouteClient} from './RouteClient/RouteClient';
+import {NavBar} from './NavBar/NavBar';
+import {About} from './About/About';
 
 export class Layout extends Component
 {
@@ -9,7 +12,10 @@ export class Layout extends Component
     {
         return (
             <div>
+                <NavBar />
+                <About />
                 <Register />
+                <RouteClient />
             </div>
         );
     }

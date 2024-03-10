@@ -25,16 +25,23 @@ fs.mkdirSync(componentDirectory);
 
 const componentTemplate = 
 `import React from 'react';
+import './${componentName}.css'
 
-export dafault function ${componentName}()
+export function ${componentName}()
 {
     return (
-        <div>
+        <section className="${componentName.toLowerCase()} section" id="${componentName}">
+          <div className="container">
             ${componentName} Component
-        </div>
+          </div>
+        </section>
     );
 }`;
 
 fs.writeFileSync(path.join(componentDirectory, `${componentName}.jsx`), componentTemplate);
+
+const cssTemplate = ``; // CSS vazio
+
+fs.writeFileSync(path.join(componentDirectory, `${componentName}.css`), cssTemplate);
 
 console.log(`Componente ${componentName} criado com sucesso.`);

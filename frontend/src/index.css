@@ -1,4 +1,5 @@
-body {
+body
+{
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -7,7 +8,71 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+code
+{
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+ul
+{
+  list-style: none;
+}
+
+li
+{
+  list-style: none;
+}
+
+a
+{ 
+  color: inherit;
+  text-decoration: none;
+} 
+
+.section
+{
+
+  background: #fafafa;
+  opacity: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  padding: 0 30px;
+  position: fixed;
+  width: 85%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.section.active
+{
+  z-index: 2;
+  opacity: 1;
+  animation: slideSection 1s ease;
+}
+@keyframes slideSection 
+{
+  0%
+  {
+    transform: translateX(100%);
+  }    
+  100%
+  {
+    transform: translateX(0%);
+  }
+}
+
+.container
+{
+  max-width: 1100px;
+  width: 100%;
+  margin: auto;
+}
+
+.section .container
+{
+  padding-top: 60px;
+  padding-bottom: 70px;
 }

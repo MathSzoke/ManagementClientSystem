@@ -1,10 +1,13 @@
 import React from 'react';
+import './Register.css'
 
-export default function Register()
+export function Register()
 {
-  return (
-    <div>
-      register Component
-    </div>
-  );
+    return (
+        <section className="register section" id="Register">
+          <div className="container">
+            Register Component
+          </div>
+        </section>
+    );
 }
