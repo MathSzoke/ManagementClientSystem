@@ -19,6 +19,6 @@ const getApiData = async (endpoint) =>
         headers: headers,
     });
     return response.json();
-};  
+};
 
 export {postApiData, getApiData};

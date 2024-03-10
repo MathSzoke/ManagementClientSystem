@@ -51,7 +51,7 @@ export function NavBar() {
                 <GiBroom size="6em" color='white' />
             </div>
             <li className='navbar-button'><a href="#About" className={activeNav === '#About' ? 'active' : ''} title="About">Sobre</a></li>
-            <li className='navbar-button'><a href="#Register" className={activeNav === '#Register' ? 'active' : ''} title="Register Client">Registrar Cliente</a></li>
+            <li className='navbar-button'><a href="#Register" className={activeNav === '#Register' ? 'active' : ''} title="Register Client">Registrar</a></li>
             <li className='navbar-button'><a href="#Route" className={activeNav === '#Route' ? 'active' : ''} title="Route Client">Mapear Clientes</a></li>
         </nav>
     );

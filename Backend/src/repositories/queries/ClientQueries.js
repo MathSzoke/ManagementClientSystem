@@ -10,6 +10,7 @@ export class ClientQueries
       const clients = await db.sequelize.query(query, {
         type: QueryTypes.SELECT
       })
+
       return clients
     } catch (error) {
       throw error
@@ -88,5 +89,5 @@ export class ClientQueries
   }
 
   select = (column, value) =>
-    `SELECT * FROM public."Clients" WHERE "${column}" = '${value}'`
+    `SELECT * FROM public."Clients" WHERE "${column}" LIKE '${value}'`
 }

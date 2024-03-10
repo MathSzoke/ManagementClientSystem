@@ -8,9 +8,19 @@ router.post('/client', (request, response) => {
     return clientController.handle(request, response);
 });
 
-router.get('/getAllClients', (response) => {
-    return clientController.getAllClients(response);
-})
+router.get('/getAllClients', async (req, res) => {
+    try
+    {
+        const clients = await clientController.getAllClients();
+
+        res.json(clients);
+    }
+    catch (error)
+    {
+        console.error('Error fetching clients:', error);
+        res.status(500).json({ error: 'Failed to fetch clients' });
+    }
+});
 
 router.get('/getClientByName', (request, response) => {
     return clientController.getClientByName(request, response);

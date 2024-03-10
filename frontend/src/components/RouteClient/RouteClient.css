@@ -1,0 +1,50 @@
+.clients
+{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+}
+
+.cardClient
+{
+    width: 40%;
+    height: 10%;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 5%;
+    padding: 5px;
+    user-select: none;
+}
+
+.cardClient:hover
+{
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+}
+
+p.clientProp
+{
+    display: table;
+}
+
+p.clientName
+{
+    font-weight: bold;
+    margin: 5px 0 25px;
+}
+
+.contentCard
+{
+    padding-left: 5%;
+    padding-top: 3%;
+}
+
+.colorDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
