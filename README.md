@@ -63,3 +63,9 @@ Para gerar um componente em ReactJS, utilize o seguinte comando:
     cd /frontend/src/
     npm run generate:component NameComponent
 ---
+
+## Links:
+
+### Acesso ao protótipo no Figma:
+
+https://www.figma.com/file/EChO90V101Ob3kwXwvBaZW/CleanSzoke?type=design&node-id=0-1&mode=design
